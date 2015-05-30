@@ -1,0 +1,91 @@
+.custom-nav-fixed
+{
+	top:0;
+}
+.custom-parallax
+{
+	min-height: 580px;
+}
+.search-radius
+{
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+}
+.search-box input[type=search]:focus 
+{
+    border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+}
+.custom-title
+{
+	margin-bottom: 0.2rem;
+}
+.mrg-btm
+{
+	margin-bottom: 3.5rem;
+}
+.main-btns
+{
+	margin-top: 4.5rem;
+}
+.homepage-btn
+{
+	margin:0 15px;
+}
+nav ul a 
+{
+  font-size: 1.3rem;
+}
+.modal
+{
+	width:30%;
+	max-height: 71%;
+	overflow: hidden;
+}
+.modal-title
+{
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
+}
+.card .card-content .card-title {
+  line-height: 30px;
+}
+.card .card-content
+{
+	padding:5px;
+	font-size: 18px;
+}
+.custom-h4
+{
+	margin:2.5rem 0;
+	letter-spacing: 0.5px;
+	margin-bottom: 0;
+}
+.custom-h6
+{
+	margin-bottom: 2.5rem;
+}
+.card .card-title
+{
+	font-weight: 500;
+}
+.card.small
+{
+	height: 230px;
+}
+.explore-parallax
+{
+	min-height: 210px;
+}
+
+.explore-nav
+{
+	height: 45px;
+  	line-height: 45px;
+}
+.explore-nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i 
+{	height: 45px;
+  	line-height: 45px;
+}
