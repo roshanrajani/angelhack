@@ -8,6 +8,11 @@ $('.modal-trigger').leanModal({
     }
   );
 
+if($(".dropdown-button").length)
+{
+  $(".dropdown-button").dropdown();
+}
+
 $(document).ready(function() {
   var navpos = $('#mainnav').offset();
   //console.log(navpos.top);
@@ -24,5 +29,9 @@ $(document).ready(function() {
   if($(".slider" ).length)
   {
     $('.slider').slider({height:300, indicators:false});
+  }
+  if($('select').length)
+  {
+    $('select').material_select();
   }
 });

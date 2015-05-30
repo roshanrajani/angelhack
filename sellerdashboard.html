@@ -12,16 +12,21 @@
 </head>
 <body>
   <div id="mainnav" class="navbar-fixed">
+    <ul id="user-dropdown" style="top:auto !important;" class="dropdown-content">
+      <li><a href="#">My Account</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Sign Out</a></li>
+    </ul>
     <nav class="cyan lighten-2" id="custom-nav" role="navigation">
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo cyan-text text-darken-3 ">OurLogo</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#notifcations" class="cyan-text text-darken-3"><i class="mdi-social-notifications-on"></i></a></li>
-          <li><a href="#login" class="cyan-text text-darken-3 modal-trigger">Sign in</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">ServiceAdda<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="#join" class="cyan-text text-darken-3 modal-trigger">Join</a></li>
+          <li><a href="#notifcations" class="cyan-text text-darken-3"><i class="mdi-social-notifications-on"></i></a></li>
           <li><a href="#login" class="cyan-text text-darken-3 modal-trigger">Sign in</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -97,72 +102,70 @@
       <div class="row">
         <div class="col s12 m8 l8">
           <div class="row">
-            <div style="height:6rem;">
-              <h5 class="header col s12 light" style="font-style:italic;font-weight:500">I will teach you western dance at your home.</h5>
-              <p class="right" style="font-size:1.2rem;margin:0">
-                in <a href="#"><b>Learning</b></a>
-              </p>
-              
-            </div>
+            <ul class="tabs cyan lighten-2">
+              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light active" href="#addnew">Add New</a></li>
+              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4  waves-light" href="#history">History</a></li>
+              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light" href="#earnings">Earnings</a></li>
+            </ul>
           </div>
-          <div class="divider"></div>
-          <div class="row" style="margin-bottom:0">
-            <div class="col m4 l4">
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-            </div>
-            <div class="col m4 l4 center">
-              <p><b>8</b> Orders in Queue</p>
-            </div>
-            <div class="col m4 l4 right">
-              <p class="right"><b>2</b> days in Average</p>
-            </div>
+          <div id="addnew" class="col s12">
+            <form>
+              <div class="row" style="margin-bottom:0">
+                <div class="input-field col s12">
+                  <input id="title" type="text" class="validate" required>
+                  <label for="title">Title</label>
+                </div>
+                <div class="input-field col s12">
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="learning">Learning</option>
+                    <option value="photography">Photography</option>
+                    <option value="content-writing">Content Writing</option>
+                    <option value="online">Online</option>
+                    <option value="management">Management</option>
+                  </select>
+                  <label>Category</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="description" class="materialize-textarea"></textarea>
+                    <label for="description">Description</label>
+                  </div>
+                </div>
+              </div>
+              <div class="file-field input-field">
+                <input class="file-path validate" type="text" style="margin-left:112px"/>
+                 <div class="btn cyan lighten-2" style="left:-13px">
+                   <span>Images</span>
+                   <input type="file" />
+                </div>
+              </div>
+              <div class="row center">
+                <button class="btn cyan waves-effect waves-light" type="submit" style="margin-top:1.3rem" name="action">Save
+                  <i class="mdi-content-send right"></i>
+                </button>
+              </div>
+            </form>
           </div>
-          <div class="divider" style="margin-bottom:1rem"></div>
-          <div class="slider">
-            <ul class="slides">
+          <div id="history" class="col s12">
+            <ul class="collapsible popout" data-collapsible="accordion">
               <li>
-                <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
+                <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
               </li>
               <li>
-                <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-                <div class="caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
+                <div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
               </li>
               <li>
-                <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-                <div class="caption right-align">
-                  <h3>Right Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
+                <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
               </li>
             </ul>
           </div>
-          <div class="divider"></div>
-          <div class="row">
-            <h5 class="header">Description</h5>
-            <p style="text-align:justify">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p style="text-align:justify">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
+          
         </div>
         <div class="col s12 m4 l4">
           <div class="card-panel z-depth-1">
