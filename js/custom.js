@@ -20,4 +20,9 @@ $(document).ready(function() {
          $('#mainnav').removeClass('navbar-fixed');
        }
     });
+
+  if($(".slider" ).length)
+  {
+    $('.slider').slider({height:300, indicators:false});
+  }
 });

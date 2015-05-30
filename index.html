@@ -67,17 +67,25 @@
           <form class="col s12">
             <div class="row">
               <div class="input-field">
-                <input id="join_email" type="email" class="validate">
+                <input id="join_email" name="join_email" type="email" class="validate">
                 <label for="join_email">Email</label>
               </div>
               <div class="input-field">
-                <input id="join_name" type="text" class="validate">
+                <input id="join_name"  name="join_name" type="text" class="validate">
                 <label for="join_name">Name</label>
               </div>
               <div class="input-field">
-                <input id="join_pass" type="password" class="validate">
+                <input id="join_pass" name="join_pass" type="password" class="validate">
                 <label for="join_pass">Password</label>
               </div>
+              <div class="switch">
+                <label style="font-size: 1.2rem;">
+                  Buyer
+                  <input id="join_type" name="join_type" type="checkbox">
+                  <span class="lever"></span>
+                  Seller
+                </label>
+              </div>  
               <button class="btn cyan waves-effect waves-light" type="submit" style="margin-top:1.3rem" name="action">Sign up
                 <i class="mdi-content-send right"></i>
               </button>

@@ -84,6 +84,7 @@ nav ul a
 {
 	height: 45px;
   	line-height: 45px;
+  	margin-bottom: 0.8rem;
 }
 .explore-nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i 
 {	height: 45px;
