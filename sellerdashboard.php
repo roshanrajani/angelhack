@@ -1,6 +1,7 @@
 <?php
 session_start();
-print_r($_SESSION);
+if(!isset($_SESSION["Name"]))
+  header('Location:index.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
