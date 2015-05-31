@@ -1,28 +1,60 @@
 <?php
- 
- $label="Start Selling";
- $label_link="#join";
- $class="modal-trigger";
- $footer1="Join";
- $footer1_link="#join";
- $footer2="Sign In";
- $footer2_link="#login";
- 
-if(defined('logged'))
-{
-
+  session_start();
+  if(isset($_POST["join_submit"]))
+  {
+    extract($_POST);
     
-    $label="Dashboard";
-      $label_link="sellerdashboard.php";
-      $footer1="Dashboard";
-      $footer1="sellerdashboard.php";
-      $footer2="Welcome";   
-      $footer2="#";
-      $class="";
-   
-  
-  
+    include('config.php');
+
+    if(isset($join_type))
+    {
+      $document = array(
+      'type' => 'Seller',
+      'Name' => $join_name,
+      'email' => $join_email,
+      'password'=>$join_pass
+      );
+      $_SESSION['Name']=$join_name;
+      $_SESSION['email']=$join_email;
+      $_SESSION['type']='Seller';
+      header('Location:sellerdashboard.php');
+      
+    }
+    else
+    { $document = array(
+      'type' => 'Buyer',
+      'Name' => $join_name,
+      'password' => $join_pass,
+      'email' => $join_email,
+      );
+      $_SESSION['Name']=$join_name;
+      $_SESSION['email']=$join_email;
+      $_SESSION['type']="Buyer";
+      header('Location:buy.html');
+      
+    }
+    // Insert
+    $cpsSimple->insertSingle($join_email,$document);
   }
+  $label="Start Selling";
+  $label_link="#join";
+  $class="modal-trigger";
+  $footer1="Join";
+  $footer1_link="#join";
+  $footer2="Sign In";
+  $footer2_link="#login";
+  if(isset($_SESSION["Name"]))
+  {
+      
+        $label="Dashboard";
+        $label_link="sellerdashboard.php";
+        $footer1="Dashboard";
+        $footer1_link="sellerdashboard.php";
+        $footer2="Welcome ".$_SESSION["Name"];   
+        $footer2_link="#";
+        $class="";
+        define('logged', '1');
+    }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,8 +103,8 @@ if(defined('logged'))
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo cyan-text text-darken-3 ">OurLogo</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href='<?php echo($footer1_link);?>' class="cyan-text text-darken-3 modal-trigger"><?php echo($footer1);?></a></li>
-          <li><a href='<?php echo($footer2_link);?>' class="cyan-text text-darken-3 modal-trigger"><?php echo($footer2);?></a></li>
+          <li><a href='<?php echo($footer1_link);?>' class="cyan-text text-darken-3 <?php echo (defined('logged'))?  '' :  'modal-trigger' ?>"><?php echo($footer1);?></a></li>
+          <li><a href='<?php echo($footer2_link);?>' class="cyan-text text-darken-3 <?php echo (defined('logged'))?  '' :  'modal-trigger' ?>"><?php echo($footer2);?></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -90,7 +122,7 @@ if(defined('logged'))
         <p style="margin-top:0">Your passion will pay you.</p>
         <div class="divider" style="margin-bottom:1rem"></div>
         <div class="row">
-          <form class="col s12" action="register.php" method="POST">
+          <form class="col s12" method="POST">
             <div class="row">
               <div class="input-field">
                 <input id="join_email" name="join_email" type="email" class="validate">
@@ -112,7 +144,7 @@ if(defined('logged'))
                   Seller
                 </label>
               </div>  
-              <button class="btn cyan waves-effect waves-light" type="submit" style="margin-top:1.3rem" name="action">Sign up
+              <button class="btn cyan waves-effect waves-light" type="submit" style="margin-top:1.3rem" name="join_submit">Sign up
                 <i class="mdi-content-send right"></i>
               </button>
             </div>
