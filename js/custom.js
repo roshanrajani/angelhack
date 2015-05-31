@@ -13,7 +13,23 @@ if($(".dropdown-button").length)
   $(".dropdown-button").dropdown();
 }
 
-  
+/*if($('#send').length)
+{
+  $('#send').click(function()
+    {
+      $('#chatbox').append('<div class="row" style="margin-bottom:0"><div class="col s12 m9 l9"><div class="card-panel grey lighten-5 z-depth-1"  style="padding-bottom: 2px;"><div class="col s2"><img src="images/yuna.jpg" alt="" class="circle responsive-img">
+                            </div>
+                            <div class="col s10">
+                              <span class="black-text">
+                                This is a square image. Add the "circle" class to it to make it appear circular.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>');
+    });
+}*/
 
 $(document).ready(function() {
   var navpos = $('#mainnav').offset();
@@ -58,4 +74,5 @@ $(document).ready(function() {
       $('#management').removeAttr('checked');
     }
   });
+
 });

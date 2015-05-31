@@ -1,12 +1,12 @@
 <?php
-if(isset($_GET["search"]))
+if(isset($_GET["slug"]))
 {
-  $searchterm=$_GET["search"]."*";
+  $slug=$_GET["slug"];
   require_once 'cps_simple.php';
 
   include ('config.php');
   // Search for items with category == 'cars' and car_params/year >= 2010
-  $query = CPS_Term($searchterm, 'service_title');
+  $query = CPS_Term($slug, 'service_id');
 
   // Return documents starting with the first one - offset 0
   $offset = 0;
@@ -18,11 +18,14 @@ if(isset($_GET["search"]))
   $list = array(
     
     'service_title' => 'yes',
-    'service_id' => 'yes' 
+    'service_id' => 'yes',
+    'service_category' => 'yes',
+    'service_desc' => 'yes',
+    'Name' => 'yes' 
     
   );
 
-  // Order by year, from largest to smallest
+   // Order by year, from largest to smallest
   $ordering ;
 
   // Running the query and getting the results
@@ -36,20 +39,16 @@ if(isset($_GET["search"]))
   $documents = $cpsSimple->search($query, $offset, $docs, $list);
   $mydataarray = xml2array($documents);
 
+  foreach($mydataarray as $singlearray) {
   
-  // Looping through results
 
-
-
-  
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>ServiceAdda Explore</title>
+  <title>Buy at ServiceAdda</title>
 
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -73,16 +72,16 @@ if(isset($_GET["search"]))
       </div>
     </nav>
   </div>
-
+  
   <div class="parallax-container explore-parallax valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A marketplace to connect emerging small buisnesses to the world.</h5>
+          <h4 class="header col s12 light"><?php echo $singlearray['service_title']; ?></h4>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="images/office.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
   <div id="join" class="modal">
@@ -150,107 +149,104 @@ if(isset($_GET["search"]))
 
   <div class="container">
     <div class="section">
-      <div class="row center">
-        <div>
-          <nav class="explore-nav">
-            <div class="nav-wrapper cyan lighten-2">
-              <div>
-                <ul class="left hide-on-med-and-down">
-                  <li class="active"><a href="#" class="cyan-text text-darken-4">Relevant</a></li>
-                  <li><a href="#" class="cyan-text text-darken-4">Featured</a></li>
-                  <li><a href="#" class="cyan-text text-darken-4">New</a></li>
-                </ul>
-              </div>
-              <form class="right" style="height:45px">
-                <div class="input-field" style="display:inline-block;line-height:45px">
-                  <input id="search" type="search" required>
-                  <label for="search"><i class="mdi-action-search"></i></label>
-                  <i class="mdi-navigation-close"></i>
-                </div>
-              </form>
-            </div>
-          </nav>
-        </div>
-      </div>
       <div class="row">
-        <div class="col hide-on-med-and-down l3">
-          <form action="#">
-            <p>
-              <input type="checkbox" id="all-cat" checked="checked"/>
-              <label for="all-cat">All Categories</label>
-            </p>
-            <p>
-              <input type="checkbox" id="learning" checked="checked"/>
-              <label for="learning">Learning</label>
-            </p>
-            <p>
-              <input type="checkbox" id="content-writing" checked="checked"/>
-              <label for="content-writing">Content Writing</label>
-            </p>
-            <p>
-              <input type="checkbox" id="photography" checked="checked"/>
-              <label for="photography">Photography</label>
-            </p>
-            <p>
-              <input type="checkbox" id="online" checked="checked"/>
-              <label for="online">Online</label>
-            </p>
-            <p>
-              <input type="checkbox" id="management" checked="checked"/>
-              <label for="management">Management</label>
-            </p>
-          </form>
-          <br>
+        
+        <div class="col s12 m8 l8">
+          <div class="row">
+            <div style="height:6rem;">
+              <h5 class="header col s12 light" style="font-style:italic;font-weight:500"><?php echo $singlearray['service_title']; ?></h5>
+              <p class="right" style="font-size:1.2rem;margin:0">
+                in <a href="#"><b><?php echo $singlearray['service_category']; ?></b></a>
+              </p>
+              
+            </div>
+          </div>
           <div class="divider"></div>
-          <form action="#">
-            <p>
-              <input class="with-gap" name="city" type="radio" id="hyderabad"  />
-              <label for="hyderabad">Hyderabad</label>
-            </p>
-            <p>
-              <input class="with-gap" name="city" type="radio" id="bangalore"  />
-              <label for="bangalore">Bangalore</label>
-            </p>
-            <p>
-              <input class="with-gap" name="city" type="radio" id="delhi"  />
-              <label for="delhi">New Delhi</label>
-            </p>
-          </form>
-          <br>
+          <div class="row" style="margin-bottom:0">
+            <div class="col m4 l4">
+                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
+                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
+                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
+                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
+            </div>
+            <div class="col m4 l4 center">
+              <p><b>8</b> Orders in Queue</p>
+            </div>
+            <div class="col m4 l4 right">
+              <p class="right"><b>2</b> days in Average</p>
+            </div>
+          </div>
+          <div class="divider" style="margin-bottom:1rem"></div>
+          <div class="slider">
+            <ul class="slides">
+              <li>
+                <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+                <div class="caption left-align">
+                  <h3>Left Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+                <div class="caption right-align">
+                  <h3>Right Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+            </ul>
+          </div>
           <div class="divider"></div>
-          <br>
-          <div class="switch">
-            <label>
-            Off
-            <input type="checkbox">
-            <span class="lever"></span>
-            On
-            </label>
+          <div class="row">
+            <h5 class="header">Description</h5>
+            <p style="text-align:justify">
+              <?php echo $singlearray['service_desc']; ?></p>
           </div>
         </div>
-        <div class="col l9">
-          <?php
-          foreach($mydataarray as $singlearray) {
-              //print_r($singlearray);
-            ?>
-            <div class="col s6 m4 l4">
-              <div class="card small">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img src="images/office.jpg">
-                </div>
-                <div class="card-content left-align">
-                  <span class="card-title grey-text text-darken-4"><a style="font-size:1rem" href="buy.php?slug=<?php echo $singlearray['service_id']; ?>"><?php echo $singlearray['service_title']; ?></a><i class="mdi-navigation-more-vert right"></i></span>
-                  
-                </div>
-                
+        <div class="col s12 m4 l4">
+          <div class="card-panel z-depth-1">
+            <div class="row center">
+              <img src="images/yuna.jpg" alt="" class="circle responsive-img">
+              <h5><?php echo $singlearray['Name']; ?></h5>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col m6 l6">
+                <h5>From</h5>
+                <h6>Hyderabad</h6>
+              </div>
+              <div class="col m6 l6">
+                <h5>Speaks</h5>
+                <h6>Hindi, English</h6>
               </div>
             </div>
-            <?
-              
-          }
-          ?>
+            <div class="divider"></div>
+            <div class="row center" style="margin: auto 0.5rem;">
+              <p style="text-align:justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            <div class="row center">
+              <a class="waves-effect waves-light btn-large cyan lighten-2" href="sellerchat.php"><i class="mdi-communication-chat left"></i>Contact</a>
+            </div>
+          </div>
         </div>
+       
       </div>
+      
       
 
     </div>
@@ -302,3 +298,8 @@ if(isset($_GET["search"]))
   <script src="js/custom.js"></script>
 
 </html>
+
+<?
+}
+}
+?>

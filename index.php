@@ -82,9 +82,9 @@
         </div>
         <nav class="cyan lighten-1 search-radius">
           <div class="nav-wrapper">
-            <form>
+            <form action="search.php" method="get">
               <div class="input-field search-box">
-                <input id="search" class="search-radius" type="search" required>
+                <input id="search" name="search" class="search-radius" type="search" required>
                 <label for="search"><i class="mdi-action-search"></i></label>
                 <i class="mdi-navigation-close"></i>
               </div>
@@ -92,7 +92,7 @@
           </div>
         </nav>
         <div class="row center main-btns">
-          <a href="#" id="explore-btn" class="btn-large cyan waves-effect waves-light lighten-1 homepage-btn">Explore Services</a>
+          <a href="all.php" id="explore-btn" class="btn-large cyan waves-effect waves-light lighten-1 homepage-btn">Explore Services</a>
           <a href='<?php echo($label_link);?>' id="seller-btn" class='btn-large cyan waves-effect waves-light lighten-1 homepage-btn <?php echo($class);?>'><?php echo($label);?></a>
         </div>
         <br><br>
@@ -232,7 +232,7 @@
         <div class="col s6 m4 l4">
           <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
+              <img class="activator" src="images/services/1.jpg">
             </div>
             <div class="card-content left-align">
               <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
@@ -247,7 +247,7 @@
         <div class="col s6 m4 l4">
           <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
+              <img class="activator" src="images/services/2.jpg">
             </div>
             <div class="card-content left-align">
               <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
@@ -262,7 +262,7 @@
         <div class="col s6 m4 l4">
           <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
+              <img class="activator" src="images/services/3.jpg">
             </div>
             <div class="card-content left-align">
               <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
@@ -277,7 +277,7 @@
         <div class="col s6 m4 l4">
           <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
+              <img class="activator" src="images/services/4.jpg">
             </div>
             <div class="card-content left-align">
               <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
@@ -292,7 +292,7 @@
         <div class="col s6 m4 l4">
           <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
+              <img class="activator" src="images/services/5.jpg">
             </div>
             <div class="card-content left-align">
               <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
@@ -322,7 +322,7 @@
       </div>
       <!--   Icon Section   -->
       <div class="row center">
-        <a class="waves-effect waves-light btn-large cyan lighten-2" href="#"><i class="mdi-action-view-module left"></i>View all services</a>
+        <a class="waves-effect waves-light btn-large cyan lighten-2" href="all.php"><i class="mdi-action-view-module left"></i>View all services</a>
       </div>
 
     </div>

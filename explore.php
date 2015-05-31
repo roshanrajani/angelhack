@@ -1,9 +1,55 @@
+<?php
+if(isset($_GET["search"]))
+{
+  $searchterm=$_GET["search"]."*";
+  require_once 'cps_simple.php';
+
+  include ('config.php');
+  // Search for items with category == 'cars' and car_params/year >= 2010
+  $query = CPS_Term($searchterm, 'service_title');
+
+  // Return documents starting with the first one - offset 0
+  $offset = 0;
+
+  // Return not more than 5 documents
+  $docs = 5;
+
+  // Return these fields from the documents
+  $list = array(
+    
+    'service_title' => 'yes',
+    'service_id' => 'yes' 
+    
+  );
+
+  // Order by year, from largest to smallest
+  $ordering ;
+
+  // Running the query and getting the results
+  function xml2array ( $xmlObject, $out = array () )
+  {
+      foreach ( (array) $xmlObject as $index => $node )
+          $out[$index] = ( is_object ( $node ) ) ? xml2array ( $node ) : $node;
+
+      return $out;
+  }
+  $documents = $cpsSimple->search($query, $offset, $docs, $list);
+  $mydataarray = xml2array($documents);
+
+  
+  // Looping through results
+
+
+
+  
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Buy at ServiceAdda</title>
+  <title>ServiceAdda Explore</title>
 
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -32,11 +78,11 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h4 class="header col s12 light">I will teach you western dance at your home.</h4>
+          <h5 class="header col s12 light">A marketplace to connect emerging small buisnesses to the world.</h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="images/office.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
   <div id="join" class="modal">
@@ -104,106 +150,107 @@
 
   <div class="container">
     <div class="section">
-      <div class="row">
-        <div class="col s12 m8 l8">
-          <div class="row">
-            <div style="height:6rem;">
-              <h5 class="header col s12 light" style="font-style:italic;font-weight:500">I will teach you western dance at your home.</h5>
-              <p class="right" style="font-size:1.2rem;margin:0">
-                in <a href="#"><b>Learning</b></a>
-              </p>
-              
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="row" style="margin-bottom:0">
-            <div class="col m4 l4">
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-                <i class="cyan-text mdi-action-star-rate" style="font-size:2.5rem;margin-right:-15px;"></i>
-            </div>
-            <div class="col m4 l4 center">
-              <p><b>8</b> Orders in Queue</p>
-            </div>
-            <div class="col m4 l4 right">
-              <p class="right"><b>2</b> days in Average</p>
-            </div>
-          </div>
-          <div class="divider" style="margin-bottom:1rem"></div>
-          <div class="slider">
-            <ul class="slides">
-              <li>
-                <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-                <div class="caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-                <div class="caption right-align">
-                  <h3>Right Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="divider"></div>
-          <div class="row">
-            <h5 class="header">Description</h5>
-            <p style="text-align:justify">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p style="text-align:justify">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-        <div class="col s12 m4 l4">
-          <div class="card-panel z-depth-1">
-            <div class="row center">
-              <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-              <h5>Service Adda</h5>
-            </div>
-            <div class="divider"></div>
-            <div class="row">
-              <div class="col m6 l6">
-                <h5>From</h5>
-                <h6>Hyderabad</h6>
+      <div class="row center">
+        <div>
+          <nav class="explore-nav">
+            <div class="nav-wrapper cyan lighten-2">
+              <div>
+                <ul class="left hide-on-med-and-down">
+                  <li class="active"><a href="#" class="cyan-text text-darken-4">Relevant</a></li>
+                  <li><a href="#" class="cyan-text text-darken-4">Featured</a></li>
+                  <li><a href="#" class="cyan-text text-darken-4">New</a></li>
+                </ul>
               </div>
-              <div class="col m6 l6">
-                <h5>Speaks</h5>
-                <h6>Hindi, English</h6>
-              </div>
+              <form class="right" style="height:45px">
+                <div class="input-field" style="display:inline-block;line-height:45px">
+                  <input id="search" type="search" required>
+                  <label for="search"><i class="mdi-action-search"></i></label>
+                  <i class="mdi-navigation-close"></i>
+                </div>
+              </form>
             </div>
-            <div class="divider"></div>
-            <div class="row center" style="margin: auto 0.5rem;">
-              <p style="text-align:justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
-            <div class="row center">
-              <a class="waves-effect waves-light btn-large cyan lighten-2" href="#"><i class="mdi-communication-chat left"></i>Contact</a>
-            </div>
-          </div>
+          </nav>
         </div>
       </div>
-      
+      <div class="row">
+        <div class="col hide-on-med-and-down l3">
+          <form action="#">
+            <p>
+              <input type="checkbox" id="all-cat" checked="checked"/>
+              <label for="all-cat">All Categories</label>
+            </p>
+            <p>
+              <input type="checkbox" id="learning" checked="checked"/>
+              <label for="learning">Learning</label>
+            </p>
+            <p>
+              <input type="checkbox" id="content-writing" checked="checked"/>
+              <label for="content-writing">Content Writing</label>
+            </p>
+            <p>
+              <input type="checkbox" id="photography" checked="checked"/>
+              <label for="photography">Photography</label>
+            </p>
+            <p>
+              <input type="checkbox" id="online" checked="checked"/>
+              <label for="online">Online</label>
+            </p>
+            <p>
+              <input type="checkbox" id="management" checked="checked"/>
+              <label for="management">Management</label>
+            </p>
+          </form>
+          <br>
+          <div class="divider"></div>
+          <form action="#">
+            <p>
+              <input class="with-gap" name="city" type="radio" id="hyderabad"  />
+              <label for="hyderabad">Hyderabad</label>
+            </p>
+            <p>
+              <input class="with-gap" name="city" type="radio" id="bangalore"  />
+              <label for="bangalore">Bangalore</label>
+            </p>
+            <p>
+              <input class="with-gap" name="city" type="radio" id="delhi"  />
+              <label for="delhi">New Delhi</label>
+            </p>
+          </form>
+          <br>
+          <div class="divider"></div>
+          <br>
+          <div class="switch">
+            <label>
+            Off
+            <input type="checkbox">
+            <span class="lever"></span>
+            On
+            </label>
+          </div>
+        </div>
+        <div class="col l9">
+          <?php
+          foreach($mydataarray as $singlearray) {
+              //print_r($singlearray);
+            ?>
+            <div class="col s6 m4 l4">
+              <div class="card small">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img src="images/office.jpg">
+                </div>
+                <div class="card-content left-align">
+                  <span class="card-title grey-text text-darken-4"><?php echo $singlearray['service_title']; ?><i class="mdi-navigation-more-vert right"></i></span>
+                  <p><a href="buy.php?slug=<?php echo $singlearray['service_id']; ?>">This is a link</a></p>
+                </div>
+                
+              </div>
+            </div>
+            <?
+              
+          }
+          ?>
+        </div>
+      </div>
       
 
     </div>

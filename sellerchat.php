@@ -120,7 +120,7 @@
             </nav>
             <div class="row">
               <div class="card-panel z-depth-1">
-                <div class="row" style="height: 280px;overflow-x: hidden; padding: 0 14px;">
+                <div id="chatbox" class="row" style="height: 280px;overflow-x: hidden; padding: 0 14px;">
                   <div class="row" style="margin-bottom:0">
                     <div class="col s12 m9 l9">
                       <div class="card-panel grey lighten-5 z-depth-1"  style="padding-bottom: 2px;">
@@ -200,7 +200,7 @@
                     </div>
                   </div>
                   <div class="col s1 m1 l1">
-                    <a class="btn-floating waves-effect waves-light cyan"><i class="mdi-content-send"></i></a>
+                    <a id="send" class="btn-floating waves-effect waves-light cyan"><i class="mdi-content-send"></i></a>
                   </div>
 
                 </div>
