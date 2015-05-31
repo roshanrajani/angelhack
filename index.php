@@ -14,10 +14,12 @@
       'email' => $join_email,
       'password'=>$join_pass
       );
+	  print_r($document);
       $_SESSION['Name']=$join_name;
       $_SESSION['email']=$join_email;
       $_SESSION['type']='Seller';
-      header('Location:sellerdashboard.php');
+	  $cpsSimple->insertSingle($join_email,$document);
+      //header('Location:sellerdashboard.php');
       
     }
     else
@@ -30,11 +32,12 @@
       $_SESSION['Name']=$join_name;
       $_SESSION['email']=$join_email;
       $_SESSION['type']="Buyer";
+	  $cpsSimple->insertSingle($join_email,$document);
       header('Location:buy.html');
       
     }
     // Insert
-    $cpsSimple->insertSingle($join_email,$document);
+   // $cpsSimple->insertSingle($join_email,$document);
   }
   $label="Start Selling";
   $label_link="#join";

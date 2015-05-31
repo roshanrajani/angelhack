@@ -1,8 +1,79 @@
 <?php
+include('config.php');
 session_start();
+require_once 'cps_simple.php';
 if(!isset($_SESSION["Name"]))
   header('Location:index.php');
+
+if(isset($_POST['title']))
+{
+	print_r($_POST);
+	extract($_POST);
+	
+// Search for items with category == 'cars' and car_params/year >= 2010
+$query = CPS_Term('Seller', 'type'). CPS_Term($_SESSION['email'], 'email');
+
+// Return documents starting with the first one - offset 0
+$offset = 0;
+
+// Return not more than 5 documents
+$docs = 5;
+
+// Return these fields from the documents
+$list = array(
+	'service_id' => 'yes',
+	'service_title' => 'yes',
+	'service_desc' => 'yes',
+	'service_category' => 'yes',
+	'service_date' => 'yes',
+	'service_date' => 'yes',
+	'service_date' => 'yes'	
+	
+);
+function xml2array ( $xmlObject, $out = array () )
+{
+    foreach ( (array) $xmlObject as $index => $node )
+        $out[$index] = ( is_object ( $node ) ) ? xml2array ( $node ) : $node;
+
+    return $out;
+}
+// Order by year, from largest to smallest
+$ordering ;
+
+// Running the query and getting the results
+$documents = $cpsSimple->search($query, $offset, $docs, $list);
+$mydataarray = xml2array($documents);
+function slugify($text)
+{ 
+  
+  $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+  $text = trim($text, '-');
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+  $text = strtolower($text);$text = preg_replace('~[^-\w]+~', '', $text);
+  if (empty($text))
+  {
+    return 'n-a';
+  }
+  return $text;
+}
+foreach($mydataarray as $singlearray) {
+		//print_r($singlearray);
+		$singlearray['service_title'] = $title;
+		$singlearray['service_category'] = $category;
+		$singlearray['service_desc'] = $desc;
+		$singlearray['service_id'] = slugify($title);
+		
+		$cpsSimple->updateSingle($singlearray['email'], $singlearray);
+}
+// Looping through results
+
+
+
+
+}
+
 ?>
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,14 +91,14 @@ if(!isset($_SESSION["Name"]))
     <ul id="user-dropdown" style="top:auto !important;" class="dropdown-content">
       <li><a href="#">My Account</a></li>
       <li class="divider"></li>
-      <li><a href="#!">Sign Out</a></li>
+      <li><a href="logout.php">Sign Out</a></li>
     </ul>
     <nav class="cyan lighten-2" id="custom-nav" role="navigation">
       <div class="nav-wrapper container">
         <a id="logo-container" href="index.php" class="brand-logo cyan-text text-darken-3 ">OurLogo</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#notifcations" class="cyan-text text-darken-3"><i class="mdi-social-notifications-on"></i></a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">ServiceAdda<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="user-dropdown"><?php echo ($_SESSION['Name']);?><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -114,14 +185,14 @@ if(!isset($_SESSION["Name"]))
             </ul>
           </div>
           <div id="addnew" class="col s12">
-            <form>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
               <div class="row" style="margin-bottom:0">
                 <div class="input-field col s12">
-                  <input id="title" type="text" class="validate" required>
+                  <input id="title" name="title" type="text" class="validate" required>
                   <label for="title">Title</label>
                 </div>
                 <div class="input-field col s12">
-                  <select>
+                  <select name="category">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="learning">Learning</option>
                     <option value="photography">Photography</option>
@@ -135,7 +206,7 @@ if(!isset($_SESSION["Name"]))
               <div class="row">
                 <div class="row">
                   <div class="input-field col s12">
-                    <textarea id="description" class="materialize-textarea"></textarea>
+                    <textarea id="description" name="desc" class="materialize-textarea"></textarea>
                     <label for="description">Description</label>
                   </div>
                 </div>

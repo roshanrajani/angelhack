@@ -12,7 +12,7 @@ $connectionStrings = array(
 // Creating a CPS_Connection instance
 $cpsConn = new CPS_Connection(
 	'tcp://cloud-eu-0.clusterpoint.com:9007',
-	'test',
+	'serviceadda',
 	'gauravkumarbaid@gmail.com',
 	'975712152171',
 	'document',
@@ -25,7 +25,7 @@ $cpsConn = new CPS_Connection(
 // Creating a CPS_Simple instance
 $cpsSimple = new CPS_Simple($cpsConn);
 // Search for items with category == 'cars' and car_params/year >= 2010
-$query = CPS_Term('GAURAV', 'title');
+$query = CPS_Term('Seller', 'type'). CPS_Term('pakezah@gmail.com', 'email');
 
 // Return documents starting with the first one - offset 0
 $offset = 0;
@@ -35,9 +35,14 @@ $docs = 5;
 
 // Return these fields from the documents
 $list = array(
-	'id' => 'yes',
-	'body/text' => 'yes',
-	'title' => 'yes'
+	'service_id' => 'yes',
+	'service_title' => 'yes',
+	'service_desc' => 'yes',
+	'service_category' => 'yes',
+	'service_date' => 'yes',
+	'service_date' => 'yes',
+	'service_date' => 'yes'	
+	
 );
 
 // Order by year, from largest to smallest
@@ -45,9 +50,24 @@ $ordering ;
 
 // Running the query and getting the results
 $documents = $cpsSimple->search($query, $offset, $docs, $list);
+$mydataarray = xml2array($documents);
 
-// Looping through results
-foreach ($documents as $id => $document) {
-	echo $document->title . ' ' . $document->body->text . '<br />';
+foreach($mydataarray as $singlearray) {
+		//print_r($singlearray);
+		$singlearray['service_title'] = "BOLO";
+		echo $singlearray['email'];
+		$cpsSimple->updateSingle($singlearray['email'], $singlearray);
 }
+// Looping through results
+
+
+
+function xml2array ( $xmlObject, $out = array () )
+{
+    foreach ( (array) $xmlObject as $index => $node )
+        $out[$index] = ( is_object ( $node ) ) ? xml2array ( $node ) : $node;
+
+    return $out;
+}
+
 ?>
