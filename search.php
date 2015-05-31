@@ -1,31 +1,9 @@
 <?php 
 require_once 'cps_simple.php';
 
-// Connection hubs
-$connectionStrings = array(
-	'tcp://cloud-eu-0.clusterpoint.com:9007',
-	'tcp://cloud-eu-1.clusterpoint.com:9007',
-	'tcp://cloud-eu-2.clusterpoint.com:9007',
-	'tcp://cloud-eu-3.clusterpoint.com:9007'
-);
-
-// Creating a CPS_Connection instance
-$cpsConn = new CPS_Connection(
-	'tcp://cloud-eu-0.clusterpoint.com:9007',
-	'serviceadda',
-	'gauravkumarbaid@gmail.com',
-	'975712152171',
-	'document',
-	'//document/id',
-	array('account' => 810)
-);
-
-// Debug
-//$cpsConn->setDebug(true);
-// Creating a CPS_Simple instance
-$cpsSimple = new CPS_Simple($cpsConn);
+include ('config.php');
 // Search for items with category == 'cars' and car_params/year >= 2010
-$query = CPS_Term('Seller', 'type'). CPS_Term('pakezah@gmail.com', 'email');
+$query = CPS_Term('dance*', 'service_title');
 
 // Return documents starting with the first one - offset 0
 $offset = 0;
@@ -35,13 +13,9 @@ $docs = 5;
 
 // Return these fields from the documents
 $list = array(
-	'service_id' => 'yes',
+	
 	'service_title' => 'yes',
-	'service_desc' => 'yes',
-	'service_category' => 'yes',
-	'service_date' => 'yes',
-	'service_date' => 'yes',
-	'service_date' => 'yes'	
+	'service_id' => 'yes'	
 	
 );
 
@@ -54,9 +28,10 @@ $mydataarray = xml2array($documents);
 
 foreach($mydataarray as $singlearray) {
 		//print_r($singlearray);
-		$singlearray['service_title'] = "BOLO";
-		echo $singlearray['email'];
-		$cpsSimple->updateSingle($singlearray['email'], $singlearray);
+		
+		echo $singlearray['service_title'];
+		echo $singlearray['service_id'];
+		
 }
 // Looping through results
 
