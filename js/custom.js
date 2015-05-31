@@ -13,6 +13,8 @@ if($(".dropdown-button").length)
   $(".dropdown-button").dropdown();
 }
 
+  
+
 $(document).ready(function() {
   var navpos = $('#mainnav').offset();
   //console.log(navpos.top);
@@ -34,4 +36,26 @@ $(document).ready(function() {
   {
     $('select').material_select();
   }
+
+  $('#all-cat').click(function()
+  {
+    if($('#all-cat:checked').val()=='on')
+    {
+      $('#all-cat').prop('checked',true);
+      $('#learning').prop('checked',true);
+      $('#content-writing').prop('checked',true);
+      $('#photography').prop('checked',true);
+      $('#online').prop('checked',true);
+      $('#management').prop('checked',true);      
+    }
+    else
+    {
+      console.log('finished');
+      $('#learning').removeAttr('checked');
+      $('#content-writing').removeAttr('checked');
+      $('#photography').removeAttr('checked');
+      $('#online').removeAttr('checked');
+      $('#management').removeAttr('checked');
+    }
+  });
 });

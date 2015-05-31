@@ -78,7 +78,7 @@
         <br><br>
         <h1 class="header center cyan-text text-darken-2 custom-title">ServiceAdda</h1>
         <div class="row center mrg-btm">
-          <h5 class="header col s12 light">The marketplace for your needed <b>services</b>.</h5>
+          <h5 class="header col s12 cyan-text text-darken-2">The marketplace for your needed <b>services</b>.</h5>
         </div>
         <nav class="cyan lighten-1 search-radius">
           <div class="nav-wrapper">
@@ -99,7 +99,7 @@
 
       </div>
     </div>
-    <div class="parallax cyan lighten-3"><!-- <img src="background1.jpg" alt="Unsplashed background img 2"> --></div>
+    <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 2" style="opacity:0.5"></div>
   </div>
   <div id="mainnav" class="navbar-fixed">
     <nav class="cyan lighten-2" id="custom-nav" role="navigation">
@@ -197,7 +197,7 @@
         <div class="col s12 m4 l4">
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-              <img src="images/office.jpg">
+              <img src="images/learning.png">
             </div>
             <div class="card-content">
               <span class="card-title cyan-text text-darken-2">Learning</span>
@@ -207,7 +207,7 @@
         <div class="col s12 m4 l4">
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-              <img src="images/office.jpg">
+              <img src="images/photography.jpg">
             </div>
             <div class="card-content">
               <span class="card-title cyan-text text-darken-2">Photography</span>
@@ -217,7 +217,7 @@
         <div class="col s12 m4 l4">
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-              <img src="images/office.jpg">
+              <img src="images/contentwriting.jpg">
             </div>
             <div class="card-content">
               <span class="card-title cyan-text text-darken-2">Content Writing</span>
