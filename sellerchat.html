@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Seller Dashboard</title>
+  <title>Seller Chat</title>
 
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -22,12 +22,12 @@
         <a id="logo-container" href="#" class="brand-logo cyan-text text-darken-3 ">OurLogo</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#notifcations" class="cyan-text text-darken-3"><i class="mdi-social-notifications-on"></i></a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">ServiceAdda<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">Service Adda<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#notifcations" class="cyan-text text-darken-3"><i class="mdi-social-notifications-on"></i></a></li>
-          <li><a href="#login" class="cyan-text text-darken-3 modal-trigger">Sign in</a></li>
+          <!-- <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">Buyer<i class="mdi-navigation-arrow-drop-down right"></i></a></li> -->
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
@@ -100,85 +100,122 @@
   <div class="container">
     <div class="section">
       <div class="row">
-        <div class="col s12 m8 l8">
-          <div class="row">
-            <ul class="tabs cyan lighten-2">
-              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light active" href="#addnew">Add New</a></li>
-              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4  waves-light" href="#history">History</a></li>
-              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light" href="#earnings">Earnings</a></li>
-            </ul>
-          </div>
-          <div id="addnew" class="col s12">
-            <form>
-              <div class="row" style="margin-bottom:0">
-                <div class="input-field col s12">
-                  <input id="title" type="text" class="validate" required>
-                  <label for="title">Title</label>
+        <div class="col s12 m7 l7">
+          <div>
+            <nav class="explore-nav">
+              <div class="nav-wrapper cyan lighten-2">
+                <div>
+                  <ul class="left hide-on-med-and-down">
+                    <li class="active"><a href="#" class="cyan-text text-darken-4">Chating to Buyer...</a></li>
+                  </ul>
                 </div>
-                <div class="input-field col s12">
-                  <select>
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="learning">Learning</option>
-                    <option value="photography">Photography</option>
-                    <option value="content-writing">Content Writing</option>
-                    <option value="online">Online</option>
-                    <option value="management">Management</option>
-                  </select>
-                  <label>Category</label>
-                </div>
+                <form class="right" style="height:45px">
+                  <div class="input-field" style="display:inline-block;line-height:45px">
+                    <input id="search" type="search" required>
+                    <label for="search"><i class="mdi-action-search"></i></label>
+                    <i class="mdi-navigation-close"></i>
+                  </div>
+                </form>
               </div>
-              <div class="row">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="description" class="materialize-textarea"></textarea>
-                    <label for="description">Description</label>
+            </nav>
+            <div class="row">
+              <div class="card-panel z-depth-1">
+                <div class="row" style="height: 280px;overflow-x: hidden; padding: 0 14px;">
+                  <div class="row" style="margin-bottom:0">
+                    <div class="col s12 m9 l9">
+                      <div class="card-panel grey lighten-5 z-depth-1"  style="padding-bottom: 2px;">
+                        <div class="row valign-wrapper">
+                          <div class="col s2">
+                            <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                          </div>
+                          <div class="col s10">
+                            <span class="black-text">
+                              This is a square image. Add the "circle" class to it to make it appear circular.
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-bottom:0">
+                    <div class="col s12 m9 offset-m3 l9 offset-l3">
+                      <div class="card-panel grey lighten-5 z-depth-1"  style="padding-bottom: 2px;">
+                        <div class="row valign-wrapper">
+                          <div class="col s10">
+                            <span class="black-text">
+                              This is a square image. Add the "circle" class to it to make it appear circular.
+                            </span>
+                          </div>
+                          <div class="col s2">
+                            <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-bottom:0">
+                    <div class="col s12 m9 l9">
+                      <div class="card-panel cyan lighten-2 z-depth-1"  style="padding-bottom: 2px;">
+                        <div class="row valign-wrapper">
+                          <div class="col s2">
+                            <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                          </div>
+                          <div class="col s10">
+                            <span class="black-text">
+                              Payment Request <b>INR 5000</b>.<br>
+                              Txn ID: SA123456789
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-bottom:0">
+                    <div class="col s12 m9 offset-m3 l9 offset-l3">
+                      <div class="card-panel cyan lighten-5 z-depth-1" style="padding-bottom: 2px;">
+                        <div class="row valign-wrapper">
+                          <div class="col s10">
+                            <span class="black-text">
+                              Payment Received <b>INR 5000</b>.<br>
+                              Timestamp: 31 May 2015 07:35
+                            </span>
+                          </div>
+                          <div class="col s2">
+                            <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="file-field input-field">
-                <input class="file-path validate" type="text" style="margin-left:112px"/>
-                 <div class="btn cyan lighten-2" style="left:-13px">
-                   <span>Images</span>
-                   <input type="file" />
+                <div class="row valign-wrapper">
+                  <div class="col s1 m1 l1">
+                    <a class="btn-floating waves-effect waves-light cyan"><i class="mdi-editor-attach-file"></i></a><br><br>
+                    <a class="btn-floating waves-effect waves-light cyan"><i class="mdi-action-payment"></i></a>
+                  </div>
+                  <div class="col s10 m10 l10">
+                    <div class="input-field col s12">
+                      <textarea id="message" class="materialize-textarea"></textarea>
+                      <label for="message">Message</label>
+                    </div>
+                  </div>
+                  <div class="col s1 m1 l1">
+                    <a class="btn-floating waves-effect waves-light cyan"><i class="mdi-content-send"></i></a>
+                  </div>
+
                 </div>
-              </div>
-              <div class="row center">
-                <button class="btn cyan waves-effect waves-light" type="submit" style="margin-top:1.3rem" name="action">Save
-                  <i class="mdi-content-send right"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-          <div id="history" class="col s12">
-            <ul class="collapsible popout" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-              </li>
-            </ul>
-          </div>
-          <div id="earnings" class="col s12">
-            <div class="card-panel z-depth-1">
-              <div class="row center">
-                <h5>Total Earnings : <b>INR 27000<b></h5>
               </div>
             </div>
           </div>
           
         </div>
-        <div class="col s12 m4 l4">
+        <div class="col s12 m4 offset-m1 l4 offset-l1">
           <div class="card-panel z-depth-1">
             <div class="row center">
+              <h5>Chating to...</h5>
+              <div class="divider" style="margin-bottom:1rem"></div>
               <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-              <h5>Service Adda</h5>
+              <h5>Buyer</h5>
             </div>
             <div class="divider"></div>
             <div class="row">
@@ -193,13 +230,10 @@
             </div>
             <div class="divider"></div>
             <div class="row center" style="margin: auto 0.5rem;">
-              <p style="text-align:justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              <h6>Requested for</h6>
+              <a href="buy.html" style="font-size:1.2rem">I will teach you western dance at your home.</a>
             </div>
-            <div class="row center">
-              <a class="waves-effect waves-light btn cyan lighten-2" href="#"><i class="mdi-editor-mode-edit left"></i>Edit Profile</a>
-            </div>
+            
           </div>
         </div>
       </div>

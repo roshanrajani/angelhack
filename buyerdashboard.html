@@ -22,12 +22,12 @@
         <a id="logo-container" href="#" class="brand-logo cyan-text text-darken-3 ">OurLogo</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#notifcations" class="cyan-text text-darken-3"><i class="mdi-social-notifications-on"></i></a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">ServiceAdda<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">Buyer<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#notifcations" class="cyan-text text-darken-3"><i class="mdi-social-notifications-on"></i></a></li>
-          <li><a href="#login" class="cyan-text text-darken-3 modal-trigger">Sign in</a></li>
+          <!-- <li><a class="dropdown-button" href="#!" data-activates="user-dropdown">Buyer<i class="mdi-navigation-arrow-drop-down right"></i></a></li> -->
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
@@ -103,51 +103,38 @@
         <div class="col s12 m8 l8">
           <div class="row">
             <ul class="tabs cyan lighten-2">
-              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light active" href="#addnew">Add New</a></li>
+              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light active" href="#progress">In Progress</a></li>
               <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4  waves-light" href="#history">History</a></li>
-              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light" href="#earnings">Earnings</a></li>
+              <li class="tab col s3"><a class="waves-effect cyan-text text-darken-4 waves-light" href="#transactions">Transactions</a></li>
             </ul>
           </div>
-          <div id="addnew" class="col s12">
-            <form>
-              <div class="row" style="margin-bottom:0">
-                <div class="input-field col s12">
-                  <input id="title" type="text" class="validate" required>
-                  <label for="title">Title</label>
-                </div>
-                <div class="input-field col s12">
-                  <select>
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="learning">Learning</option>
-                    <option value="photography">Photography</option>
-                    <option value="content-writing">Content Writing</option>
-                    <option value="online">Online</option>
-                    <option value="management">Management</option>
-                  </select>
-                  <label>Category</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="description" class="materialize-textarea"></textarea>
-                    <label for="description">Description</label>
+          <div id="progress" class="col s12">
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p>
+                  <div class="progress">
+                      <div class="determinate" style="width: 70%"></div>
                   </div>
                 </div>
-              </div>
-              <div class="file-field input-field">
-                <input class="file-path validate" type="text" style="margin-left:112px"/>
-                 <div class="btn cyan lighten-2" style="left:-13px">
-                   <span>Images</span>
-                   <input type="file" />
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p>
+                  <div class="progress">
+                      <div class="determinate" style="width: 50%"></div>
+                  </div>
                 </div>
-              </div>
-              <div class="row center">
-                <button class="btn cyan waves-effect waves-light" type="submit" style="margin-top:1.3rem" name="action">Save
-                  <i class="mdi-content-send right"></i>
-                </button>
-              </div>
-            </form>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p>
+                  <div class="progress">
+                      <div class="determinate" style="width: 30%"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
           <div id="history" class="col s12">
             <ul class="collapsible popout" data-collapsible="accordion">
@@ -163,14 +150,23 @@
                 <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
                 <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
               </li>
-            </ul>
+            </ul>  
           </div>
-          <div id="earnings" class="col s12">
-            <div class="card-panel z-depth-1">
-              <div class="row center">
-                <h5>Total Earnings : <b>INR 27000<b></h5>
-              </div>
-            </div>
+          <div id="transactions" class="col s12">
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="mdi-social-whatshot"></i>Third</div>
+                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+              </li>
+            </ul>  
           </div>
           
         </div>
@@ -178,7 +174,7 @@
           <div class="card-panel z-depth-1">
             <div class="row center">
               <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-              <h5>Service Adda</h5>
+              <h5>Buyer</h5>
             </div>
             <div class="divider"></div>
             <div class="row">
