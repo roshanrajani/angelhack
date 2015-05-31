@@ -1,3 +1,29 @@
+<?php
+ 
+ $label="Start Selling";
+ $label_link="#join";
+ $class="modal-trigger";
+ $footer1="Join";
+ $footer1_link="#join";
+ $footer2="Sign In";
+ $footer2_link="#login";
+ 
+if(defined('logged'))
+{
+
+    
+    $label="Dashboard";
+      $label_link="sellerdashboard.php";
+      $footer1="Dashboard";
+      $footer1="sellerdashboard.php";
+      $footer2="Welcome";   
+      $footer2="#";
+      $class="";
+   
+  
+  
+  }
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +58,7 @@
         </nav>
         <div class="row center main-btns">
           <a href="#" id="explore-btn" class="btn-large cyan waves-effect waves-light lighten-1 homepage-btn">Explore Services</a>
-          <a href="#" id="seller-btn" class="btn-large cyan waves-effect waves-light lighten-1 homepage-btn">Start Selling</a>
+          <a href='<?php echo($label_link);?>' id="seller-btn" class='btn-large cyan waves-effect waves-light lighten-1 homepage-btn <?php echo($class);?>'><?php echo($label);?></a>
         </div>
         <br><br>
 
@@ -45,8 +71,8 @@
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo cyan-text text-darken-3 ">OurLogo</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#join" class="cyan-text text-darken-3 modal-trigger">Join</a></li>
-          <li><a href="#login" class="cyan-text text-darken-3 modal-trigger">Sign in</a></li>
+          <li><a href='<?php echo($footer1_link);?>' class="cyan-text text-darken-3 modal-trigger"><?php echo($footer1);?></a></li>
+          <li><a href='<?php echo($footer2_link);?>' class="cyan-text text-darken-3 modal-trigger"><?php echo($footer2);?></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -103,7 +129,7 @@
         <p style="margin-top:0">Your passion will pay you.</p>
         <div class="divider" style="margin-bottom:1rem"></div>
         <div class="row">
-          <form class="col s12">
+          <form class="col s12" method="post" action="login.php">
             <div class="row">
               <div class="input-field">
                 <input id="join_email" type="email" class="validate">
