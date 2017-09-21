@@ -40,7 +40,6 @@ if(isset($_GET["slug"]))
   $mydataarray = xml2array($documents);
 
   foreach($mydataarray as $singlearray) {
-  
 
 ?>
 <!DOCTYPE html>
